@@ -1,0 +1,107 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  #mainVideo, #smallVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  #smallVideo {
+    width: 85%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 16px solid white;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+  }
+  
+  .overlay {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  }
+  
+  #buttonContainer {
+    width: 85%;
+    height: auto;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 40px;
+    transition: opacity 0.5s ease;
+  }
+  
+  #buttonContainer.show {
+    opacity: 1;
+  }
+  
+  #buttonContainer .text,
+  #buttonContainer .button {
+    margin: 10%;
+  }
+  
+  .start-button {
+    font-family: 'Cabin', sans-serif; /* Applying Cabin Sketch font */
+    padding: 4vh 8vw;
+    color: white;
+    border-radius: 4vw;
+    font-size: 3vw;
+    cursor: pointer;
+    transition: all 1s ease;
+    background: linear-gradient(to top, #fa546f, #fbb54e);
+    border: 16px solid #ADD8E6;
+    color: white;
+  }
+  
+  .start-button:hover {
+    background: linear-gradient(to top, #fbb54e, #fa546f);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+  }
+  
+  .text {
+    color: white;
+    text-align: center;
+    margin-bottom: 2vh;
+    font-family: 'Dancing Script', cursive;
+    font-size: 8vw;
+    font-weight: bold;
+  }
+  
+  @media screen and (min-width: 768px) {
+    #smallVideo {
+      width: auto;
+      height: 85%;
+    }
+    #buttonContainer {
+      height: 85%;
+    }
+    .text {
+      font-size: 7vw;
+    }
+    .button {
+      padding: 2vh 4vw;
+      font-size: 3vw;
+    }
+  }
+  
