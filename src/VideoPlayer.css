@@ -8,7 +8,7 @@ body, html {
   }
   
   #mainVideo, #smallVideo {
-    width: 100%;
+    width: 1000%;
     height: 100%;
     object-fit: cover;
     position: absolute;
