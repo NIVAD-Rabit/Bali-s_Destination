@@ -83,7 +83,7 @@ const CurrencyExchange = () => {
               </tr>
               <tr className="centered-link-row">
                 <td colSpan="2">
-                  <center><a href="https://www.x-rates.com/table/?from=IDR&amount=1" target="_blank" rel="noopener noreferrer">
+                  <center><a href="http://www.x-rates.com/table/?from=IDR&amount=1" target="_blank" rel="noopener noreferrer">
                       More Information
                   </a></center>
                 </td>
