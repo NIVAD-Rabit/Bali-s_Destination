@@ -19,14 +19,17 @@ const CurrencyExchange = () => {
 
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          throw new Error('Failed to fetch exchange rates');
+          throw new Error(`Failed to fetch exchange rates: ${response.statusText}`);
         }
         const data = await response.json();
+        if (data.error) {
+          throw new Error(`API error: ${data.error.info}`);
+        }
         setExchangeRates(data.quotes);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching exchange rates:', error);
-        setError('Failed to fetch exchange rates. Please try again later.');
+        setError(error.message);
         setLoading(false);
       }
     };
