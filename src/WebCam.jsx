@@ -234,7 +234,7 @@ function WebCam() {
           >
             <motion.div style={styles.container}>
               {loading ? (
-                <img src="/loading.gif" alt="Loading" style={styles.spinner} />
+                <img src="/Loading.gif" alt="Loading" style={styles.spinner} />
               ) : (
                 <motion.button
                   onClick={handleClick}
