@@ -1,0 +1,218 @@
+
+
+  .slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease;
+    touch-action: pan-y;
+    
+  }
+  
+  .slide.col-md-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 0 0 100%;
+    width: auto;
+    height: 100vh;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+
+}
+
+  
+  .slide.col-md-4 .button-container {
+    text-align: center;
+  }
+  
+  .slide.col-md-4 .text {
+    color: black;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 8vw;
+    font-weight: bold;
+    margin-bottom: 8vh;
+  }
+  
+
+  .D-button.btn {
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+    padding: 2vh 4vw;
+    font-size: 3vw;
+    cursor: pointer;
+    transition: all 1s ease;
+    color: white;
+    border-radius: 4vw;
+    background: linear-gradient(to top, #cdaaad, #90b9b5);
+    border: 1vw solid #275b5b;
+  }
+  
+  .D-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to top, #90b9b5, #cdaaad);
+    box-shadow: 0px 0px 0.75vw rgba(0, 0, 0, 0.5);
+    border-color: #39a4a4 !important;
+  }
+  
+  .V-button.btn {
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+    padding: 2vh 4vw;
+    font-size: 3vw;
+    cursor: pointer;
+    transition: all 1s ease;
+    color: white;
+    border-radius: 4vw;
+    background: linear-gradient(to top, #64aca4, #f3efe3);
+    border: 1vw solid #355355;
+  }
+  
+  .V-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to top, #f3efe3, #64aca4);
+    box-shadow: 0px 0px 0.75vw rgba(0, 0, 0, 0.5);
+    border-color: #5d8c8c !important;
+
+  }
+  
+  .AU-button.btn {
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+    padding: 2vh 4vw;
+    font-size: 3vw;
+    cursor: pointer;
+    transition: all 1s ease;
+    color: white;
+    border-radius: 4vw;
+    background: linear-gradient(to top, #c2a19c, #c3e7e1);
+    border: 1vw solid #4d7685;
+  }
+  
+  .AU-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to top, #c3e7e1, #c2a19c);
+    box-shadow: 0px 0px 0.75vw rgba(0, 0, 0, 0.5);
+    border-color: #76a6b3 !important;
+  }
+  
+  @media (min-width: 769px) {
+    .slide {
+      background-position: center;
+      background-size: auto 110%;
+    }
+  }
+  
+  .pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 10%;
+  }
+  
+  .pagination button {
+    background-color: #add8e6;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin: 0 5px;
+    font-size: 14px;
+    border-radius: 50%;
+    width: 2.4vw;
+    height: 2.4vw;
+  }
+  
+  .pagination button,
+  .prev.btn-dark,
+  .next.btn-dark {
+    background-color: #003e3d;
+    color: white;
+  }
+
+  .prev.btn-dark {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .next.btn-dark {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .pagination button:hover,
+  .prev.btn-dark:hover,
+  .next.btn-dark:hover {
+    background-color: #64aca4;
+    color: #fff;
+  }
+  
+  .pagination button.active {
+    background-color: #333;
+  }
+  
+  .prev.btn-dark,
+  .next.btn-dark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 62, 61, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 1vw;
+    z-index: 2;
+    font-size: 2.4vw;
+    transition: background-color 0.3s ease;
+  }
+  
+  .prev.btn-dark {
+    left: 0;
+  }
+  
+  .next.btn-dark {
+    right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5vh;
+    }
+    
+    .pagination button {
+      padding: 1vw;
+      font-size: 3vw;
+      width: 5vw;
+      height: 5vw;
+    }
+    
+    .prev,
+    .next {
+      font-size: 6vw;
+      padding: 2vw;
+    }
+    .slide.col-md-4 {
+      background-size: cover;
+    }
+    .slide.col-md-4 .button-container {
+      width: 85%;
+    }
+    
+    .slide.col-md-4 .text {
+      font-size: 7vh;
+      margin-bottom: 10vh;
+    }
+    
+    .button {
+      padding: 2vh 10vw;
+      font-size: 6vw;
+      border-radius: 8vw;
+    }
+  }
