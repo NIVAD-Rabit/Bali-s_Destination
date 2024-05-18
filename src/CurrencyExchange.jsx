@@ -1,35 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const CurrencyExchange = () => {
-  const [exchangeRates, setExchangeRates] = useState(null);
+const CurrencyConverter = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [exchangeRates, setExchangeRates] = useState(null);
 
   useEffect(() => {
     const fetchExchangeRates = async () => {
       try {
-        const apiKey = 'cb8ab5b8660a1c5f4cb3f51fc11ab6a8';
-        const currencies = 'AUD,CNY,INR,KRW,USD';
-        const source = 'IDR';
-        const format = 1;
-
-        const apiUrl = `http://apilayer.net/api/live?access_key=${apiKey}&currencies=${currencies}&source=${source}&format=${format}`;
-
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch exchange rates: ${response.statusText}`);
-        }
-        const data = await response.json();
-        if (data.error) {
-          throw new Error(`API error: ${data.error.info}`);
-        }
-        setExchangeRates(data.quotes);
+        const response = await axios.get('https://api.currencyfreaks.com/latest', {
+          params: {
+            apikey: 'daf5e71917614d3e89e4cc558cb764e4',
+            symbols: 'AUD,CNY,INR,KRW,USD',
+          },
+        });
+        setExchangeRates(response.data.rates);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching exchange rates:', error);
-        setError(error.message);
+        setError('Failed to fetch exchange rates');
         setLoading(false);
       }
     };
@@ -37,18 +26,14 @@ const CurrencyExchange = () => {
     fetchExchangeRates();
   }, []);
 
-  const convertCurrency = (currencyCode) => {
-    if (exchangeRates && exchangeRates[`IDR${currencyCode}`]) {
-      const exchangeRate = exchangeRates[`IDR${currencyCode}`];
-      const converted = 100 / exchangeRate;
-      return converted.toFixed(2);
-    } else {
-      return 'N/A';
-    }
+  const convertCurrency = (currency) => {
+    if (!exchangeRates) return null;
+    const rate = exchangeRates[currency];
+    return (100 * rate).toFixed(2); // Convert 100 units of the given currency to IDR
   };
 
   return (
-    <div className="container mt-5">
+    <div className="table-container mt-5">
       {loading && <p>Loading...</p>}
       {error && <p className="text-danger">Error: {error}</p>}
       {exchangeRates && (
@@ -83,9 +68,11 @@ const CurrencyExchange = () => {
               </tr>
               <tr className="centered-link-row">
                 <td colSpan="2">
-                  <center><a href="http://www.x-rates.com/table/?from=IDR&amount=1" target="_blank" rel="noopener noreferrer">
+                  <center>
+                    <a href="https://www.x-rates.com/table/?from=IDR&amount=1" target="_blank" rel="noopener noreferrer">
                       More Information
-                  </a></center>
+                    </a>
+                  </center>
                 </td>
               </tr>
             </tbody>
@@ -96,4 +83,4 @@ const CurrencyExchange = () => {
   );
 };
 
-export default CurrencyExchange;
+export default CurrencyConverter;
