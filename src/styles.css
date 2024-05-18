@@ -1,3 +1,4 @@
+/*General*/
 .header {
     width: 100%;
     text-align: center;
@@ -8,6 +9,8 @@
 #weatherData {
     padding: 20px;
     border-radius: 8px;
+    font-family: 'Cabin', sans-serif; 
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +32,13 @@
     text-align: center;
     color: white;
 }
+
+.humidity {
+    font-size: 16px;
+    margin-top: 5px;
+    color: #333;
+  }
+  
 
 .additional-info {
     margin-top: 10px;
@@ -66,22 +76,27 @@
 }
 
 
-
+/* Money Changer */
 .table-container {
-    margin-top: 20px;
-    width: 100%;
-    border-collapse: collapse;
-    border: 10px solid white; 
-    border-radius: 20px; 
-    overflow: hidden; 
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
   }
-  
+
+.table-responsive{
+    width: 100%;
+  }
+
 .table {
     width: 100%;
     border-collapse: collapse;
     border: 10px solid white; 
     border-radius: 20px; 
     overflow: hidden; 
+    font-family: 'Cabin', sans-serif; 
+    
 }
   
 .table th,
@@ -89,20 +104,20 @@
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    
 }
   
 .table th {
     background-color: orange;
     text-align: center;
+    font-weight: bold;
+
 
 }
-
   
 .text-center {
     text-align: center;
 }
-  
-
   
 
 .image-section {
@@ -146,6 +161,11 @@
     overflow-y: auto;
 }
 
+.caption{
+    font-family: 'Cabin', sans-serif; 
+    font-weight: bold;
+}
+
 .caption span.border {
     background-color: rgba(17, 17, 17, 0.8);
     border: none !important; 
@@ -163,6 +183,7 @@
 }
 
 
+/* Leaflet */
 .leaflet-container {
     height: 60vh;
     width: 100%;
